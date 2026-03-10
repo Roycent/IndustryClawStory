@@ -2,12 +2,12 @@ import { useEffect } from 'react'
 import './App.css'
 import lobsterMark from './assets/lobster-mark.svg'
 
-const highlights = ['龙虾智能体', '自动化执行', '告警工单', '班组交接']
+const highlights = ['龙虾智能体', '自动化执行', '自我构建', '班组交接']
 
 const values = [
   { title: '龙虾特性', text: '像现场龙虾一样持续巡航、盯住异常、抓住未结项。' },
   { title: '智能体协同', text: '从查看信息延伸到理解上下文、调用系统和推动动作。' },
-  { title: '自动化闭环', text: '把分析结果自动转成工单、复核项、通知与交接动作。' },
+  { title: '自我构建能力', text: '可继续生成 Agent、装配 Skill、接入系统，把现场能力越长越完整。' },
 ]
 
 const roles = ['班组长 / 值班长', '机修 / 电气人员', '运维负责人', '接班班组']
@@ -31,6 +31,13 @@ const skills = [
   '回执跟踪', '责任链绑定', '班次识别', '停机分析', '点检建议', '备件推荐',
   '能耗分析', '产线概览', '任务编排', '通知推送', '消息订阅', '报表汇总',
   '日报生成', '风险评分', '知识问答', '多系统调用', '角色分发', '闭环审计',
+]
+
+const buildSteps = [
+  { title: '长出 Agent', text: '围绕巡检、诊断、交接、报表等岗位继续扩新的智能体。' },
+  { title: '装配 Skill', text: '把 SOP、分析、派单、通知、汇报能力模块化接进去。' },
+  { title: '接入系统', text: '继续连监控、工单、知识库、消息、报表等工业系统。' },
+  { title: '扩工作流', text: '把新的现场流程编成可运行、可复用、可迭代的自动化链路。' },
 ]
 
 const processSteps = [
@@ -84,7 +91,7 @@ function App() {
           <div className="hero-copy">
             <p className="eyebrow">INDUSTRIAL LOBSTER AGENT</p>
             <h1>让工业现场真正形成任务闭环</h1>
-            <p className="hero-text">一只面向工业现场的龙虾智能体，持续巡航、理解上下文、自动派发任务，帮助班组把跨班交接真正接起来。</p>
+            <p className="hero-text">一只面向工业现场的龙虾智能体，持续巡航、理解上下文、自动派发任务，还能继续生长新的 Agent 与 Skill，帮助班组把跨班交接真正接起来。</p>
             <div className="hero-actions">
               <a className="primary-btn" href="#value">查看产品价值</a>
               <a className="secondary-btn" href="https://industryclaw.vercel.app" target="_blank" rel="noreferrer">查看原型演示</a>
@@ -111,7 +118,7 @@ function App() {
           <div className="section-heading narrow">
             <p className="eyebrow">VALUE</p>
             <h2>看见问题，也推动动作</h2>
-            <p className="section-text">IndustryClaw 让智能体直接进入现场执行链路，持续把异常、任务和交接往前推。</p>
+            <p className="section-text">IndustryClaw 让智能体直接进入现场执行链路，也保留继续扩 Agent、加 Skill、接系统的自我构建空间。</p>
           </div>
           <div className="value-grid triple-grid">
             {values.map((item, index) => (
@@ -152,6 +159,23 @@ function App() {
                 <span key={skill} className="skill-chip">{skill}</span>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section className="section reveal compact-screen">
+          <div className="section-heading narrow">
+            <p className="eyebrow">BUILD</p>
+            <h2>像 OpenClaw 一样继续长能力</h2>
+            <p className="section-text">工业龙虾不只跑现成流程，也能持续生成新 agent、扩 skill、接新系统、编新工作流。</p>
+          </div>
+          <div className="process-grid">
+            {buildSteps.map((step, index) => (
+              <article key={step.title} className={`process-card reveal delay-${(index % 3) + 1}`}>
+                <span className="process-index">0{index + 1}</span>
+                <h3>{step.title}</h3>
+                <p>{step.text}</p>
+              </article>
+            ))}
           </div>
         </section>
 
@@ -204,7 +228,7 @@ function App() {
           <div className="cta-card">
             <p className="eyebrow">INDUSTRYCLAW</p>
             <h2>一只真正会干活的工业龙虾</h2>
-            <p>它能巡航、分析、调用系统并自动推动现场任务闭环，把现场协同真正做成一套可运行的机制。</p>
+            <p>它能巡航、分析、调用系统并自动推动现场任务闭环，也能继续扩自己的 agent、skill 和工作流。</p>
           </div>
         </section>
       </main>
