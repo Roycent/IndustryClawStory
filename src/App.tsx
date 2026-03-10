@@ -12,6 +12,27 @@ const values = [
 
 const roles = ['班组长 / 值班长', '机修 / 电气人员', '运维负责人', '接班班组']
 
+const agents = [
+  '巡检 Agent',
+  '告警 Agent',
+  '诊断 Agent',
+  'SOP Agent',
+  '工单 Agent',
+  '调度 Agent',
+  '交接 Agent',
+  '能耗 Agent',
+  '报表 Agent',
+  '管理驾驶舱 Agent',
+]
+
+const skills = [
+  '设备监测', '告警聚合', '异常归因', '趋势分析', '阈值判断', 'SOP 检索',
+  '案例召回', '工单创建', '工单派发', '工单催办', '升级流转', '交接生成',
+  '回执跟踪', '责任链绑定', '班次识别', '停机分析', '点检建议', '备件推荐',
+  '能耗分析', '产线概览', '任务编排', '通知推送', '消息订阅', '报表汇总',
+  '日报生成', '风险评分', '知识问答', '多系统调用', '角色分发', '闭环审计',
+]
+
 const processSteps = [
   { title: '持续巡航', text: '智能体持续关注设备、告警、任务与未结项。' },
   { title: '理解上下文', text: '自动关联 SOP、历史维修、班次责任链和相似案例。' },
@@ -19,13 +40,7 @@ const processSteps = [
   { title: '跨班接力', text: '让交接不只是一段文字，而是一条被接住的任务链。' },
 ]
 
-const scenes = [
-  '离散制造车间',
-  '公辅与设备运维',
-  '24 小时连续生产',
-  '数字化样板工厂',
-]
-
+const scenes = ['离散制造车间', '公辅与设备运维', '24 小时连续生产', '数字化样板工厂']
 const outcomes = ['减少漏单', '缩短响应', '自动派发', '提升闭环率']
 
 function App() {
@@ -59,9 +74,9 @@ function App() {
           </div>
           <div className="nav-links">
             <a href="#value">价值</a>
+            <a href="#agents">Agents</a>
             <a href="#flow">流程</a>
             <a href="#scenes">场景</a>
-            <a href="https://github.com/Roycent/IndustryClaw" target="_blank" rel="noreferrer">原型</a>
           </div>
         </nav>
 
@@ -120,7 +135,27 @@ function App() {
           </div>
         </section>
 
-        <section id="flow" className="section reveal compact-screen alt-section">
+        <section id="agents" className="section reveal compact-screen alt-section">
+          <div className="section-heading narrow">
+            <p className="eyebrow">AGENTS & SKILLS</p>
+            <h2>自带 10 个 Agents，30 个 Skills</h2>
+            <p className="section-text">不是单一助手，而是一整套可组合的工业智能体与技能体系。</p>
+          </div>
+          <div className="agent-skill-layout">
+            <div className="agent-grid">
+              {agents.map((agent, index) => (
+                <div key={agent} className={`agent-card reveal delay-${(index % 3) + 1}`}>{agent}</div>
+              ))}
+            </div>
+            <div className="skill-cloud reveal delay-2">
+              {skills.map((skill) => (
+                <span key={skill} className="skill-chip">{skill}</span>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="flow" className="section reveal compact-screen">
           <div className="section-heading narrow">
             <p className="eyebrow">FLOW</p>
             <h2>一条自动化的现场流程</h2>
@@ -137,7 +172,7 @@ function App() {
           </div>
         </section>
 
-        <section id="scenes" className="section reveal compact-screen">
+        <section id="scenes" className="section reveal compact-screen alt-section">
           <div className="section-heading narrow">
             <p className="eyebrow">SCENES</p>
             <h2>适用场景</h2>
@@ -152,7 +187,7 @@ function App() {
           </div>
         </section>
 
-        <section className="section reveal compact-screen alt-section">
+        <section className="section reveal compact-screen">
           <div className="section-heading narrow">
             <p className="eyebrow">OUTCOME</p>
             <h2>最终得到什么</h2>
@@ -170,9 +205,7 @@ function App() {
             <p className="eyebrow">INDUSTRYCLAW STORY</p>
             <h2>一只真正会干活的工业龙虾</h2>
             <p>它不是另一个聊天框，而是一个能巡航、分析、调用系统并自动推动现场任务闭环的智能体。</p>
-            <a className="primary-btn" href="https://github.com/Roycent/IndustryClawStory" target="_blank" rel="noreferrer">
-              查看官网源码
-            </a>
+            <a className="primary-btn" href="https://github.com/Roycent/IndustryClawStory" target="_blank" rel="noreferrer">查看官网源码</a>
           </div>
         </section>
       </main>

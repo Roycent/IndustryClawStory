@@ -113,7 +113,7 @@ a { color: inherit; text-decoration: none; }
 .primary-btn:hover, .secondary-btn:hover { transform: translateY(-1px); }
 .hero-panel { display: flex; flex-direction: column; gap: 10px; }
 
-.panel-card, .value-card, .scene-card, .cta-card, .process-card, .outcome-pill, .role-pill {
+.panel-card, .value-card, .scene-card, .cta-card, .process-card, .outcome-pill, .role-pill, .agent-card, .skill-cloud {
   background: rgba(8, 18, 33, 0.72);
   border: 1px solid rgba(113, 159, 255, 0.12);
   box-shadow: 0 18px 60px rgba(0, 0, 0, 0.24);
@@ -167,9 +167,44 @@ a { color: inherit; text-decoration: none; }
   font-size: clamp(1.9rem, 3vw, 2.8rem);
   letter-spacing: -0.03em;
 }
-.value-grid, .scene-grid, .process-grid, .outcome-row, .role-row {
+.value-grid, .scene-grid, .process-grid, .outcome-row, .role-row, .agent-grid {
   display: grid;
   gap: 10px;
+}
+
+.agent-skill-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 1.4fr;
+  gap: 12px;
+}
+
+.agent-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.agent-card {
+  border-radius: 18px;
+  padding: 16px;
+  font-weight: 700;
+  color: #dff6ff;
+}
+
+.skill-cloud {
+  border-radius: 22px;
+  padding: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-content: flex-start;
+}
+
+.skill-chip {
+  border-radius: 999px;
+  padding: 8px 12px;
+  background: rgba(59, 130, 246, 0.14);
+  color: #cfe4ff;
+  font-size: 0.88rem;
+  white-space: nowrap;
 }
 .triple-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .single-line-grid, .process-grid, .outcome-row, .role-row { grid-template-columns: repeat(4, minmax(0, 1fr)); }
@@ -220,7 +255,7 @@ a { color: inherit; text-decoration: none; }
 .delay-3 { transition-delay: 0.24s; }
 
 @media (max-width: 1080px) {
-  .hero-content, .triple-grid, .single-line-grid, .process-grid, .outcome-row, .role-row {
+  .hero-content, .triple-grid, .single-line-grid, .process-grid, .outcome-row, .role-row, .agent-skill-layout, .agent-grid {
     grid-template-columns: 1fr;
   }
   .section, .hero { padding-left: 20px; padding-right: 20px; }
@@ -248,4 +283,5 @@ a { color: inherit; text-decoration: none; }
   .hero-actions { flex-direction: column; }
   .primary-btn, .secondary-btn { width: 100%; }
   .cta-card { padding: 22px; }
+  .skill-cloud { padding: 14px; }
 }
