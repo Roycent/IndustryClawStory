@@ -112,7 +112,7 @@ a {
   max-width: 1160px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
+  grid-template-columns: minmax(0, 1.9fr) minmax(280px, 0.9fr);
   gap: 24px;
   align-items: center;
 }
