@@ -10,6 +10,8 @@ const values = [
   { title: '闭环交接', text: '未结项、责任人、回执与接收状态一屏可见。' },
 ]
 
+const roles = ['班组长 / 值班长', '机修 / 电气人员', '运维负责人', '接班班组']
+
 const processSteps = [
   { title: '告警出现', text: '系统捕捉异常并锁定设备上下文。' },
   { title: '助手分析', text: '自动关联 SOP、历史维修与相似案例。' },
@@ -24,12 +26,7 @@ const scenes = [
   '数字化样板工厂',
 ]
 
-const outcomes = [
-  '减少漏单',
-  '缩短响应',
-  '降低跨班断点',
-  '提升闭环率',
-]
+const outcomes = ['减少漏单', '缩短响应', '降低跨班断点', '提升闭环率']
 
 function App() {
   useEffect(() => {
@@ -37,9 +34,7 @@ function App() {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('revealed')
-          }
+          if (entry.isIntersecting) entry.target.classList.add('revealed')
         })
       },
       { threshold: 0.16, rootMargin: '0px 0px -8% 0px' },
@@ -97,7 +92,7 @@ function App() {
       </header>
 
       <main>
-        <section id="value" className="section reveal full-screen">
+        <section id="value" className="section reveal compact-screen">
           <div className="section-heading narrow">
             <p className="eyebrow">VALUE</p>
             <h2>少看板，多执行</h2>
@@ -113,7 +108,19 @@ function App() {
           </div>
         </section>
 
-        <section id="flow" className="section reveal full-screen alt-section">
+        <section className="section reveal compact-screen">
+          <div className="section-heading narrow">
+            <p className="eyebrow">ROLE</p>
+            <h2>服务谁</h2>
+          </div>
+          <div className="role-row">
+            {roles.map((role, index) => (
+              <div key={role} className={`role-pill reveal delay-${(index % 3) + 1}`}>{role}</div>
+            ))}
+          </div>
+        </section>
+
+        <section id="flow" className="section reveal compact-screen alt-section">
           <div className="section-heading narrow">
             <p className="eyebrow">FLOW</p>
             <h2>一条更顺的现场流程</h2>
@@ -130,7 +137,7 @@ function App() {
           </div>
         </section>
 
-        <section id="scenes" className="section reveal full-screen">
+        <section id="scenes" className="section reveal compact-screen">
           <div className="section-heading narrow">
             <p className="eyebrow">SCENES</p>
             <h2>适用场景</h2>
@@ -145,7 +152,7 @@ function App() {
           </div>
         </section>
 
-        <section className="section reveal full-screen alt-section">
+        <section className="section reveal compact-screen alt-section">
           <div className="section-heading narrow">
             <p className="eyebrow">OUTCOME</p>
             <h2>最终得到什么</h2>
@@ -158,7 +165,7 @@ function App() {
           </div>
         </section>
 
-        <section className="section cta-section reveal full-screen">
+        <section className="section cta-section reveal compact-screen">
           <div className="cta-card">
             <p className="eyebrow">INDUSTRYCLAW STORY</p>
             <h2>工业现场协同，不止是看见问题</h2>
