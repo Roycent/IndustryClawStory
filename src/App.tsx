@@ -10,7 +10,26 @@ const values = [
   { title: '闭环交接', text: '未结项、责任人、回执与接收状态一屏可见。' },
 ]
 
-const scenes = ['离散制造车间', '公辅与设备运维', '24 小时连续生产', '数字化样板工厂']
+const processSteps = [
+  { title: '告警出现', text: '系统捕捉异常并锁定设备上下文。' },
+  { title: '助手分析', text: '自动关联 SOP、历史维修与相似案例。' },
+  { title: '任务落单', text: '生成工单、复核项与升级动作。' },
+  { title: '跨班交接', text: '把未结项和责任链明确交给下一班。' },
+]
+
+const scenes = [
+  '离散制造车间',
+  '公辅与设备运维',
+  '24 小时连续生产',
+  '数字化样板工厂',
+]
+
+const outcomes = [
+  '减少漏单',
+  '缩短响应',
+  '降低跨班断点',
+  '提升闭环率',
+]
 
 function App() {
   useEffect(() => {
@@ -23,7 +42,7 @@ function App() {
           }
         })
       },
-      { threshold: 0.18, rootMargin: '0px 0px -8% 0px' },
+      { threshold: 0.16, rootMargin: '0px 0px -8% 0px' },
     )
 
     elements.forEach((element) => observer.observe(element))
@@ -45,6 +64,7 @@ function App() {
           </div>
           <div className="nav-links">
             <a href="#value">价值</a>
+            <a href="#flow">流程</a>
             <a href="#scenes">场景</a>
             <a href="https://github.com/Roycent/IndustryClaw" target="_blank" rel="noreferrer">原型</a>
           </div>
@@ -67,7 +87,7 @@ function App() {
               <strong>从告警到处置，再到交接</strong>
               <small>把监控、SOP、工单和交接串成一个现场执行入口。</small>
             </div>
-            <div className="chip-row highlight-row reveal delay-2">
+            <div className="chip-row highlight-row no-wrap reveal delay-2">
               {highlights.map((item) => (
                 <span key={item} className="chip">{item}</span>
               ))}
@@ -77,10 +97,11 @@ function App() {
       </header>
 
       <main>
-        <section id="value" className="section reveal">
+        <section id="value" className="section reveal full-screen">
           <div className="section-heading narrow">
             <p className="eyebrow">VALUE</p>
             <h2>少看板，多执行</h2>
+            <p className="section-text">IndustryClaw 不只是展示数据，而是推动异常真正进入执行链路。</p>
           </div>
           <div className="value-grid triple-grid">
             {values.map((item, index) => (
@@ -92,10 +113,28 @@ function App() {
           </div>
         </section>
 
-        <section id="scenes" className="section alt-section reveal">
+        <section id="flow" className="section reveal full-screen alt-section">
+          <div className="section-heading narrow">
+            <p className="eyebrow">FLOW</p>
+            <h2>一条更顺的现场流程</h2>
+            <p className="section-text">从异常出现，到任务落单，再到交接闭环，每一步都更清楚。</p>
+          </div>
+          <div className="process-grid">
+            {processSteps.map((step, index) => (
+              <article key={step.title} className={`process-card reveal delay-${(index % 3) + 1}`}>
+                <span className="process-index">0{index + 1}</span>
+                <h3>{step.title}</h3>
+                <p>{step.text}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section id="scenes" className="section reveal full-screen">
           <div className="section-heading narrow">
             <p className="eyebrow">SCENES</p>
             <h2>适用场景</h2>
+            <p className="section-text">适合需要把工业 AI、现场协同和跨班闭环真正做成业务能力的企业。</p>
           </div>
           <div className="scene-grid single-line-grid">
             {scenes.map((scene, index) => (
@@ -106,7 +145,20 @@ function App() {
           </div>
         </section>
 
-        <section className="section cta-section reveal">
+        <section className="section reveal full-screen alt-section">
+          <div className="section-heading narrow">
+            <p className="eyebrow">OUTCOME</p>
+            <h2>最终得到什么</h2>
+            <p className="section-text">不是更多页面，而是更清晰的责任链、更少的断点和更高的闭环率。</p>
+          </div>
+          <div className="outcome-row">
+            {outcomes.map((item, index) => (
+              <div key={item} className={`outcome-pill reveal delay-${(index % 3) + 1}`}>{item}</div>
+            ))}
+          </div>
+        </section>
+
+        <section className="section cta-section reveal full-screen">
           <div className="cta-card">
             <p className="eyebrow">INDUSTRYCLAW STORY</p>
             <h2>工业现场协同，不止是看见问题</h2>
