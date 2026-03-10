@@ -202,10 +202,9 @@ function App() {
 
         <section className="section cta-section reveal compact-screen">
           <div className="cta-card">
-            <p className="eyebrow">INDUSTRYCLAW STORY</p>
+            <p className="eyebrow">INDUSTRYCLAW</p>
             <h2>一只真正会干活的工业龙虾</h2>
             <p>它能巡航、分析、调用系统并自动推动现场任务闭环，把现场协同真正做成一套可运行的机制。</p>
-            <a className="primary-btn" href="https://github.com/Roycent/IndustryClawStory" target="_blank" rel="noreferrer">查看官网源码</a>
           </div>
         </section>
       </main>
