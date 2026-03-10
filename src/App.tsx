@@ -2,21 +2,21 @@ import { useEffect } from 'react'
 import './App.css'
 import lobsterMark from './assets/lobster-mark.svg'
 
-const highlights = ['班次总览', '设备助手', '告警工单', '班组交接']
+const highlights = ['龙虾智能体', '自动化执行', '告警工单', '班组交接']
 
 const values = [
-  { title: '发现问题', text: '统一查看设备、告警、任务与风险。' },
-  { title: '推动处置', text: '把分析结果直接转成工单、复核项和升级动作。' },
-  { title: '闭环交接', text: '未结项、责任人、回执与接收状态一屏可见。' },
+  { title: '龙虾特性', text: '像现场龙虾一样持续巡航、盯住异常、抓住未结项。' },
+  { title: '智能体协同', text: '不是普通看板，而是能理解上下文、调用系统、推动动作的工业智能体。' },
+  { title: '自动化闭环', text: '把分析结果自动转成工单、复核项、通知与交接动作。' },
 ]
 
 const roles = ['班组长 / 值班长', '机修 / 电气人员', '运维负责人', '接班班组']
 
 const processSteps = [
-  { title: '告警出现', text: '系统捕捉异常并锁定设备上下文。' },
-  { title: '助手分析', text: '自动关联 SOP、历史维修与相似案例。' },
-  { title: '任务落单', text: '生成工单、复核项与升级动作。' },
-  { title: '跨班交接', text: '把未结项和责任链明确交给下一班。' },
+  { title: '持续巡航', text: '智能体持续关注设备、告警、任务与未结项。' },
+  { title: '理解上下文', text: '自动关联 SOP、历史维修、班次责任链和相似案例。' },
+  { title: '自动落单', text: '把建议转成工单、升级、通知和待办事项。' },
+  { title: '跨班接力', text: '让交接不只是一段文字，而是一条被接住的任务链。' },
 ]
 
 const scenes = [
@@ -26,7 +26,7 @@ const scenes = [
   '数字化样板工厂',
 ]
 
-const outcomes = ['减少漏单', '缩短响应', '降低跨班断点', '提升闭环率']
+const outcomes = ['减少漏单', '缩短响应', '自动派发', '提升闭环率']
 
 function App() {
   useEffect(() => {
@@ -54,7 +54,7 @@ function App() {
             </span>
             <div>
               <strong>IndustryClaw</strong>
-              <span>工业现场任务协同</span>
+              <span>工业龙虾 · 智能体协同</span>
             </div>
           </div>
           <div className="nav-links">
@@ -67,9 +67,9 @@ function App() {
 
         <div className="hero-content compact">
           <div className="hero-copy">
-            <p className="eyebrow">INDUSTRIAL TASK COLLABORATION</p>
+            <p className="eyebrow">INDUSTRIAL LOBSTER AGENT</p>
             <h1>让工业现场真正形成任务闭环</h1>
-            <p className="hero-text">面向班次值守、告警处置、工单执行与班组交接的工业协同产品原型。</p>
+            <p className="hero-text">一只面向工业现场的龙虾智能体，持续巡航、理解上下文、自动派发任务，并推动跨班交接闭环。</p>
             <div className="hero-actions">
               <a className="primary-btn" href="#value">查看产品价值</a>
               <a className="secondary-btn" href="https://industryclaw.vercel.app" target="_blank" rel="noreferrer">查看原型演示</a>
@@ -79,8 +79,8 @@ function App() {
           <div className="hero-panel compact-panel">
             <div className="panel-card glow reveal delay-1">
               <span>核心能力</span>
-              <strong>从告警到处置，再到交接</strong>
-              <small>把监控、SOP、工单和交接串成一个现场执行入口。</small>
+              <strong>巡航、理解、执行、交接</strong>
+              <small>把工业现场里的监控、知识、工单与通知串成一条自动化执行链。</small>
             </div>
             <div className="chip-row highlight-row no-wrap reveal delay-2">
               {highlights.map((item) => (
@@ -95,8 +95,8 @@ function App() {
         <section id="value" className="section reveal compact-screen">
           <div className="section-heading narrow">
             <p className="eyebrow">VALUE</p>
-            <h2>少看板，多执行</h2>
-            <p className="section-text">IndustryClaw 不只是展示数据，而是推动异常真正进入执行链路。</p>
+            <h2>不只是看见，而是自动推动</h2>
+            <p className="section-text">IndustryClaw 的关键不是展示数据，而是让智能体真正进入现场执行链路。</p>
           </div>
           <div className="value-grid triple-grid">
             {values.map((item, index) => (
@@ -123,8 +123,8 @@ function App() {
         <section id="flow" className="section reveal compact-screen alt-section">
           <div className="section-heading narrow">
             <p className="eyebrow">FLOW</p>
-            <h2>一条更顺的现场流程</h2>
-            <p className="section-text">从异常出现，到任务落单，再到交接闭环，每一步都更清楚。</p>
+            <h2>一条自动化的现场流程</h2>
+            <p className="section-text">从持续巡航，到智能判断，再到自动落单与跨班接力，整个链路更顺也更稳。</p>
           </div>
           <div className="process-grid">
             {processSteps.map((step, index) => (
@@ -141,7 +141,7 @@ function App() {
           <div className="section-heading narrow">
             <p className="eyebrow">SCENES</p>
             <h2>适用场景</h2>
-            <p className="section-text">适合需要把工业 AI、现场协同和跨班闭环真正做成业务能力的企业。</p>
+            <p className="section-text">适合需要把工业 AI、智能体协同和自动化闭环真正落到现场的企业。</p>
           </div>
           <div className="scene-grid single-line-grid">
             {scenes.map((scene, index) => (
@@ -156,7 +156,7 @@ function App() {
           <div className="section-heading narrow">
             <p className="eyebrow">OUTCOME</p>
             <h2>最终得到什么</h2>
-            <p className="section-text">不是更多页面，而是更清晰的责任链、更少的断点和更高的闭环率。</p>
+            <p className="section-text">更少漏单、更快响应、更强自动化和更高闭环率。</p>
           </div>
           <div className="outcome-row">
             {outcomes.map((item, index) => (
@@ -168,8 +168,8 @@ function App() {
         <section className="section cta-section reveal compact-screen">
           <div className="cta-card">
             <p className="eyebrow">INDUSTRYCLAW STORY</p>
-            <h2>工业现场协同，不止是看见问题</h2>
-            <p>更重要的是让问题被接住、被处理、被交接、被闭环。</p>
+            <h2>一只真正会干活的工业龙虾</h2>
+            <p>它不是另一个聊天框，而是一个能巡航、分析、调用系统并自动推动现场任务闭环的智能体。</p>
             <a className="primary-btn" href="https://github.com/Roycent/IndustryClawStory" target="_blank" rel="noreferrer">
               查看官网源码
             </a>
